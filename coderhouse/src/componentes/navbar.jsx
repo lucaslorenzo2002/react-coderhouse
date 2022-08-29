@@ -42,7 +42,7 @@ const NavContainer = styled.nav`
   padding: .4rem;
   background-color: #333;
   display: flex;
-  height: 100px;
+  height: 110px;
   align-items: center;
   justify-content: space-between;
   a{
