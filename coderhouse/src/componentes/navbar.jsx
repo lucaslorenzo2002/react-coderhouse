@@ -1,7 +1,9 @@
 import React,{useState} from 'react';
-import '../hojas-de-estilo/navbar.css'
-import Burger from "./burgerBtn";
+import '../hojas-de-estilo/navbar.css';
+import Burger from "./BurgerBtn";
 import styled from 'styled-components'
+import CartWidget from './CartWidget';
+
 
  function Navbar(){
 
@@ -20,6 +22,7 @@ import styled from 'styled-components'
                 <a href="">CATALOGO</a>
                 <a href="">CONTACTO</a>
             </div>
+            <CartWidget />
             <div className="burger">
             <Burger click={click} handleClick={handleClick} />
             </div>

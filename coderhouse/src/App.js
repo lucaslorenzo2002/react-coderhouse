@@ -1,12 +1,14 @@
 
 import './App.css';
-import Navbar from './componentes/navbar';
+import ItemListContainer from './componentes/ItemListContainer';
+import Navbar from './componentes/Navbar';
 
 
 function App() {
   return (
     <div className="App">
       <Navbar />
+      <ItemListContainer marca={"Kavan"}/>
     </div>
   );
 }
