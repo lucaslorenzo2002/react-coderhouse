@@ -1,0 +1,16 @@
+#hero{
+  height: 80vh;
+  }
+
+  
+  #hero img{
+    position: relative;
+    left: 630px;
+    top: 50px;
+    height: 400px;
+  }
+
+  #hero .title{
+    position: relative;
+    bottom: 300px;
+  }
