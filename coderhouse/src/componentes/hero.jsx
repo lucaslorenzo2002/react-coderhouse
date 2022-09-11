@@ -1,8 +1,7 @@
 import React from "react";
 import '../hojas-de-estilo/hero.css'
 import zapa1 from '../img/zapatillas-1.png' 
-import zapa2 from '../img/zapatillas-2.png' 
-import zapa3 from '../img/zapatillas-3.png' 
+
 
 function Hero (){
     return(

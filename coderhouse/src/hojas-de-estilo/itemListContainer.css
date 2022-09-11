@@ -20,20 +20,4 @@
 
 
 
-.item{
-    height: 350px;
-    width: 25%;
-    box-shadow: 0 0 7px #111;
-    margin: 0 30px;
-}
-
-.item .card{
-    height: 200px;
-    width: 100%;
-}
-.card img{
-    margin: auto;
-    display: block;
-    height: 100px;
-}
 
