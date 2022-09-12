@@ -5,13 +5,13 @@ const ItemDetail = ({id, prod, precio, img}) =>{
 
     return(
         <>
-            <div className="imgContainer">
+            <div className="imgContainer col-4">
                 <img src={img} alt={prod} />
             </div>
             <div className="detalles">
-                <h2>{prod}</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, id.</p>
-                <p>{precio} </p>
+                <h2 className="text-center">{prod}</h2>
+                <p className="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, id.</p>
+                <p className="text-center">${precio} </p>
             </div>
         </>
     )

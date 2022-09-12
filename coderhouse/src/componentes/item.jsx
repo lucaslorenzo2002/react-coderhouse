@@ -1,5 +1,5 @@
 import React from "react";
-import ItemCount from "./itemCount";
+import ItemCount from "./ItemCount";
 import '../hojas-de-estilo/item.css'
  
 
