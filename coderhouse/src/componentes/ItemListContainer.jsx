@@ -13,8 +13,7 @@ function ItemListContainer() {
        const getZapatillas = (async(url) => {
         let res = await fetch (url),
         json = await res.json();
-        console.log(json);
-
+    
         json.forEach(async(el) => {
             let res = await fetch(el.url),
             json = await res.json();
