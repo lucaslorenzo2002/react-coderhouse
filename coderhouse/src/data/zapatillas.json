@@ -1,88 +1,44 @@
 [
     {   
         "id": 1, 
-        "stock": "32",
+        "stock": 32,
         "modelo": "Air Jordan 1",
         "precio": 49000,
         "img":"img/ajordan1.jpg"
     },
     {   
         "id": 2, 
-        "stock": "12",
+        "stock": 12,
         "modelo": "Air Jordan 1 OG Dior",
         "precio": 62000,
         "img":"img/airjordanog1dior.jpg"
     },
     {   
         "id": 3, 
-        "stock": "37",
+        "stock": 37,
         "modelo":  "Chuck 70",
         "precio": 29500,
         "img":"img/chuck70.jpg"
     },
     {   
         "id": 4, 
-        "stock": "24",
+        "stock": 24,
         "modelo":"Jordan Barcelona" ,
         "precio": 50000,
         "img":"img/jordanBarcelona.png"
     },
     {   
         "id": 5, 
-        "stock": "35",
+        "stock": 35,
         "modelo": "New Balance 993",
         "precio": 24700,
         "img": "img/nb993.jpg"
     },
     {   
         "id": 6, 
-        "stock": "20",
+        "stock": 20,
         "modelo": "Nike de Ben & Jerry",
         "precio": 43000,
         "img": "img/nikedebenyjerry.jpg"
     }
-    /* {   
-        "id": 7,
-        "stock": "Parasol",
-        "modelo": "SAILED",
-        "precio": 87600,
-        "img": "img/sunVisor.jpg"
-    },
-    {   
-        "id": 8,
-        "stock": "Suspencion",
-        "modelo": "Tc260-170-395 Vejiga Batea",
-        "precio": 16000,
-        "img": "img/suspension.webp"
-    },
-    {
-        "id": 9,
-        "stock": "Kit freno de disco",
-        "modelo": "Onix Cobalt Prisma Ls Lt Ltz",
-        "precio": 11500,
-        "img": "img/disco.webp"
-    },
-    {   
-        "id": 10,
-        "stock": "Filtro de aceite",
-        "modelo": "Acdelco",
-        "precio": 1250,
-        "img": "img/filtroAceite.webp"
-    },
-    {   
-        "id": 11,
-        "stock": "Bujia",
-        "modelo": "Chispa auto  moto",
-        "precio": 2000,
-        "img": "img/bujia.webp"
-        
-    },
-    {   
-        "id": 12,
-        "stock": "Pedales",
-        "modelo": "Herbo 14x55",
-        "precio": 10500,
-        "img": "img/gasPedal.jpeg"
-    } */
-    
 ]
