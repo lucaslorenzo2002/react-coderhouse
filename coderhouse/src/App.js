@@ -6,17 +6,31 @@ import Navbar from './componentes/Navbar';
 import Item from './componentes/Item';
 import ItemDetailContainer from './componentes/ItemDetailContainer';
 import Form from './componentes/Form';
+import FormContainer from './componentes/FormContainer';
+ import{BrowserRouter, Route, Routes, } from "react-router-dom";
+import Productos from './componentes/Productos';
+import Contacto from './componentes/Contacto';
+import Err from './componentes/Err404';
+import ItemDetail from './componentes/ItemDetail';
+
 
 
 
 function App() {
   return (
     <div className="App">
+       <BrowserRouter>
       <Navbar />
-      <Hero />
-      <ItemListContainer />
-      <ItemDetailContainer />
-      <Form />
+      <Routes>
+        <Route exact path='/' element={<Hero />}/>
+        <Route exact path='/productos/' element={<Productos />}/>
+        <Route exact path='/productos/:categoria' element={<ItemListContainer />}/>
+        <Route exact path='/contacto' element={<Contacto />}/>
+        <Route exact path='/producto/:id' element={<ItemDetailContainer />}/>
+        <Route  path='*' element={<Err />}/>
+      </Routes>
+      </BrowserRouter> 
+      
     </div>
   );
 }

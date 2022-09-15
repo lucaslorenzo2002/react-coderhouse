@@ -4,8 +4,8 @@
 }
 
 .item{
-    height: 350px;
-    width: 75%;
+    height: 550px;
+    width: 90%;
     box-shadow: 0 0 7px #111;
     margin: 0 30px;
     margin-top: 30px;
@@ -18,5 +18,9 @@
 .card img{
     margin: auto;
     display: block;
-    height: 100px;
+    height: 100%;
+}
+
+.titulo{
+    font-size: 30px;
 }

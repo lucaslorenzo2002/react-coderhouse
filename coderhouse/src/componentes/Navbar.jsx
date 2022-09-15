@@ -3,6 +3,7 @@ import '../hojas-de-estilo/navbar.css';
 import Burger from "./BurgerBtn";
 import styled from 'styled-components'
 import CartWidget from './CartWidget';
+import { NavLink } from "react-router-dom";
 
 
  function Navbar(){
@@ -16,11 +17,11 @@ import CartWidget from './CartWidget';
     return(
     <>
         <NavContainer>
-            <h2>KA<span>VAN</span></h2>
+            <NavLink to="/"><h2>KA<span>VAN</span></h2></NavLink>
             <div className= {`links ${click ? "active" : ""}`}>
-                <a href="">INICIO</a>
-                <a href="">CATALOGO</a>
-                <a href="">CONTACTO</a>
+                <NavLink to="/" activeClassName = "active">Home</NavLink>
+                <NavLink to="productos" activeClassName = "active">Productos</NavLink>
+                <NavLink to="contacto" activeClassName = "active">Contacto</NavLink>
             </div>
             <CartWidget />
             <div className="burger">

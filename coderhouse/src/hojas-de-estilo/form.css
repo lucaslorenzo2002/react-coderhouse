@@ -1,0 +1,41 @@
+.contacto {
+    background-color: rgb(24, 22, 22);
+    color: rgb(190, 137, 137);
+    font-family: sans-serif;
+    height: 100%;
+  }
+ 
+  .contactTitle {
+    font-size: 3em;
+  }
+   .contact-wrapper {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    padding: 1em;
+  }
+   form {
+    background-color: #222222;
+  }
+   .contact-contenido {
+    margin: 0;
+    padding: 1em;
+  }
+   input, .subBtn,  textarea {
+    width: 100%;
+    padding: 0.7em;
+    border: none;
+    background: none;
+    outline: 0ch;
+    border-bottom: 1px solid red;
+    color: orangered;
+  }
+  .subBtn {
+    color: orangered;
+    background-color: #b70e21;
+    padding: 1em;
+  }
+  .subBtn:hover {
+    background: #d63031;
+    color: white;
+    transition: 1s ease-out;
+    outline: 0ch;
+  }

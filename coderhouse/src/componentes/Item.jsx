@@ -1,23 +1,26 @@
 import React from "react";
-import ItemCount from "./ItemCount";
+import { Link } from "react-router-dom";
 import '../hojas-de-estilo/item.css'
  
 
-function Item({id, prod, precio, img}){
+function Item({id, img, prod, precio, categoria}){
 
     return(
         <>
-                    <div className="item">
+                    <div key={id} className="item">
                     <div className="card">
                     <img src={img} alt/> 
                     </div>
                     <div className="informacion">
-                        <p className="text-center">{prod}</p>
+                        <h3 className="titulo text-center">{id}{prod}</h3>
+                    </div>
+                    <div className="text-center categoria">
+                        <h5>{categoria}</h5>
                     </div>
                     <div className="precio">
                        <p className="text-center">${precio}</p> 
                     </div> 
-                    <ItemCount initial={1} onAdd={0} stock={10} />
+                    <button><Link to={`/producto/${id}`}>Detalles</Link></button>
                  </div>
         </>
     )
