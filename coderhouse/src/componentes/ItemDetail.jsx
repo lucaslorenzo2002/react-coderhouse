@@ -19,7 +19,9 @@ const ItemDetail = ({detalle}) =>{
                  </p>
                 <p className="text-center">${detalle.price} </p>
                 </div>
+                <div className="count">
                 <ItemCount initial={1} onAdd={0} stock={10} />
+                </div>
             
             </div>
         </>
