@@ -23,7 +23,7 @@ import { NavLink } from "react-router-dom";
                 <NavLink to="productos" activeClassName = "active">Productos</NavLink>
                 <NavLink to="contacto" activeClassName = "active">Contacto</NavLink>
             </div>
-            <CartWidget />
+                <NavLink to="cart"><CartWidget /></NavLink>
             <div className="burger">
             <Burger click={click} handleClick={handleClick} />
             </div>

@@ -18,12 +18,7 @@ function ItemCount ({stock, onAdd, initial}){
             setItems(value)
         }
     }
-    const agregarItem = () =>{
-        if(items <= itemStock){
-            setItemStock(itemStock - items)
-            setItemOnAdd(itemOnAdd + items)
-        }
-    }
+  
 
     return(
         <>
@@ -31,9 +26,7 @@ function ItemCount ({stock, onAdd, initial}){
         <input type="button" className="btn btn-secondary" value="-" onClick={() => {quitar(items - 1)}} />
         <input type="text" className="form-control" value={items}/>
         <input type="button" className="btn btn-secondary" value="+" onClick= {()=> {agregar(items + 1)}} />
-        <input type="button" className="btn btn-secondary" value="agregar" onClick= {() => {agregarItem ()}} />
     </div>
-        <p>productos seleccionados: {itemOnAdd}</p>
         </>
     )
 }
