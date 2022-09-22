@@ -1,31 +1,38 @@
-import React,{ useState } from "react";
+import React,{ useContext, useEffect, useState } from "react";
 import '../hojas-de-estilo/itemCount.css'
+import { CartContext } from "./UseContext";
 
-function ItemCount ({stock, onAdd, initial}){
+function ItemCount ({stock, initial, onAdd}){
 
-    const[items, setItems] = useState(initial)
-    const[itemStock, setItemStock] = useState(stock)
-    const[itemOnAdd, setItemOnAdd] = useState(onAdd)
     
-    const quitar = (value) => {
+    const [cantidad, setCantidad] = useState(initial)
+
+
+    const[itemStock, setItemStock] = useState(stock)
+
+    
+    const decrementar = (value) => {
         if(value > -1){
-            setItems(value)
+            setCantidad(value)
         }
     }
 
-    const agregar = (value) => {
+    const incrementar = (value) => {
         if(value <= itemStock){
-            setItems(value)
+            setCantidad(value)
         }
     }
   
 
+    
+
     return(
         <>
         <div className="cantidad">
-        <input type="button" className="btn btn-secondary" value="-" onClick={() => {quitar(items - 1)}} />
-        <input type="text" className="form-control" value={items}/>
-        <input type="button" className="btn btn-secondary" value="+" onClick= {()=> {agregar(items + 1)}} />
+        <input type="button" className="btn btn-secondary" value="-" onClick={() => {decrementar(cantidad - 1)}} />
+        <input type="text" className="form-control" value={cantidad}/>
+        <input type="button" className="btn btn-secondary" value="+" onClick= {()=> {incrementar(cantidad + 1)}} />
+        <button onClick={()=> onAdd(cantidad)}>agregar</button>
     </div>
         </>
     )

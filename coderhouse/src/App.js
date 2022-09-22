@@ -8,11 +8,13 @@ import ItemDetailContainer from './componentes/ItemDetailContainer';
 import Form from './componentes/Form';
 import FormContainer from './componentes/FormContainer';
  import{BrowserRouter, Route, Routes, } from "react-router-dom";
+
 import Productos from './componentes/Productos';
 import Contacto from './componentes/Contacto';
 import Err from './componentes/Err404';
 import ItemDetail from './componentes/ItemDetail';
 import Cart from './componentes/Cart';
+import CartProvider, { CartContext } from './componentes/UseContext';
 
 
 
@@ -20,6 +22,7 @@ import Cart from './componentes/Cart';
 function App() {
   return (
     <div className="App">
+      <CartProvider>
        <BrowserRouter>
       <Navbar />
       <Routes>
@@ -32,7 +35,7 @@ function App() {
         <Route  path='*' element={<Err />}/>
       </Routes>
       </BrowserRouter> 
-      
+      </CartProvider>
     </div>
   );
 }
