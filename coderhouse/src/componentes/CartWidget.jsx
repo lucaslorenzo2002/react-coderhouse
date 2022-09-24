@@ -8,8 +8,8 @@ function CartWidget (){
     const{ clear} = useContext(CartContext)
     return(
         <>
+        <button type="button" onClick={()=> clear()}>vaciar</button> 
         <div className="CartWidget">
-            <button type="button" onClick={()=> {clear()}}>vaciar</button>
             <FontAwesomeIcon icon={faCartShopping} />
         </div>
         </>
