@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import '../hojas-de-estilo/item.css'
  
 
-function Item({id, img, prod, precio, categoria}){
+function Item({id, img, prod, precio}){
 
     return(
         <>
@@ -12,10 +12,7 @@ function Item({id, img, prod, precio, categoria}){
                     <img src={img} alt/> 
                     </div>
                     <div className="informacion">
-                        <h3 className="titulo text-center">{id}{prod}</h3>
-                    </div>
-                    <div className="text-center categoria">
-                        <h5>{categoria}</h5>
+                        <h3 className="titulo text-center">{prod}</h3>
                     </div>
                     <div className="precio">
                        <p className="text-center">${precio}</p> 

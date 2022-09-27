@@ -1,26 +1,21 @@
 import React, { useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail";
 import '../hojas-de-estilo/details.css'
+import { getFirestore, doc, getDoc } from "firebase/firestore"
+
 import { json, useParams } from "react-router-dom";
 
 
 function ItemDetailContainer() {
 
-    const[detalle, setDetalle] = useState([])
-    
-
-
+    const[detalle, setDetalle] = useState({})
     const {id} = useParams()
 
   useEffect(() => {
-
-        fetch('https://fakestoreapi.com/products/' + id)
-            .then(res=>res.json())
-            .then(json=>{
-                setDetalle(json)
-                })
-            
-  },[detalle])
+    const db = getFirestore();
+    const item = doc(db, "items", id)
+    getDoc(item).then(res => setDetalle({id: res.id, ...res.data()}))    
+  },[])
 
  
     return(

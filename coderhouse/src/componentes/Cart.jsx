@@ -1,12 +1,39 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import ItemCart from './ItemCart';
+import { CartContext } from './UseContext';
 
 const Cart = () => {
+
+    const{ cart, cartTotal } = useContext(CartContext)
+    if(cart.length === 0){
     return(
         <>
-        <h1>Carrito de compras</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum magnam, nemo accusantium ducimus architecto est earum maxime odio libero sit, 
-            magni deleniti asperiores ut molestiae quas dolore tempora cupiditate eligendi.</p>
-            </>
+            <p>no hay productos seleccionados</p>
+           <Link to={'/productos'}> <button>ir a comprar</button></Link>
+        </>
+    )
+}
+
+    return(
+        <>
+            <div className="row cart">
+                {cart.map(el => (
+                    <div key={el.id}>
+                        <ItemCart 
+                        precio={el.precio}
+                        img={el.img}
+                        categoria={el.marca}
+                        prod={el.modelo}
+                        cantidad={el.cantidad}
+                        />
+                    </div>
+                ))}
+            </div>
+            <div className="total">
+                <p>total: ${cartTotal()}</p>
+            </div>
+        </>
     )
 }
 

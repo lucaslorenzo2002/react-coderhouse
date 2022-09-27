@@ -5,12 +5,13 @@ import '../hojas-de-estilo/cartWidget.css'
 import { CartContext } from "./UseContext";
 
 function CartWidget (){
-    const{ clear} = useContext(CartContext)
+    const{ clear, widgetTotal } = useContext(CartContext)
     return(
         <>
         <button type="button" onClick={()=> clear()}>vaciar</button> 
         <div className="CartWidget">
             <FontAwesomeIcon icon={faCartShopping} />
+            <span className="wTotal">{widgetTotal()}</span>
         </div>
         </>
     )
