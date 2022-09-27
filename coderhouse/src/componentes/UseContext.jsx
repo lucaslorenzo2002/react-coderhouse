@@ -38,16 +38,19 @@ const CartProvider = ({children}) =>{
     
 
     const widgetTotal = () => {
-        const copia = {...cart}
-     let count = 0;
+        const copia = [...cart]
+         let count = 0;
      copia.forEach((producto) =>{
          count = count + producto.cantidad
      })
-     return count
+     return count 
     }
     
     
-    const removeProduct = (id) => setCart(cart.filter(product => product.id !== id)) 
+    const removeProduct = (id) => {
+        const filtrado = cart.filter((product) => product.id !== id);
+        setCart(filtrado)
+    }
 
     return(
         <CartContext.Provider value={{ addToCart, clear, cartTotal, widgetTotal, removeProduct, cart }}>{children}</CartContext.Provider>

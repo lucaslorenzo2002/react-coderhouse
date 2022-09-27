@@ -12,7 +12,7 @@ const ItemCart = ({img, id, prod, precio, categoria, cantidad}) =>{
                     <img src={img} alt/> 
                     </div>
                     <div className="itemInfo">
-                        <h3 className="titulo text-center">{id}{prod}</h3>
+                        <h3 className="titulo text-center">{prod}</h3>
                     </div>
                     <div className="text-center categoria">
                         <h5>{categoria}</h5>
@@ -22,7 +22,7 @@ const ItemCart = ({img, id, prod, precio, categoria, cantidad}) =>{
                     </div> 
                     <div className="precio">
                        <p className="text-center">subtotal: ${precio * cantidad}</p> 
-                    </div> (
+                    </div> 
                     <button onClick={()=> removeProduct(id)} className='text-center'>eliminar</button>
                  </div>
         </>

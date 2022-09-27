@@ -26,12 +26,13 @@ const Cart = () => {
                         categoria={el.marca}
                         prod={el.modelo}
                         cantidad={el.cantidad}
+                        id={el.id}
                         />
                     </div>
                 ))}
             </div>
             <div className="total">
-                <p>total: ${cartTotal()}</p>
+                <p className='text-center'>total: ${cartTotal()}</p>
             </div>
         </>
     )
