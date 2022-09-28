@@ -11,17 +11,18 @@ function ItemListContainer() {
 
 
     const[productos, setProductos] = useState([])
-    const{categoria} = useParams()
-    const{id} = useParams()
+    const{marca} = useParams()
 
     useEffect(() => {
         const db = getFirestore();
         const itemCollection = collection(db, "items");
-        const q = id ? query(itemCollection, where("id", "==", id)) : itemCollection
-        getDocs(itemCollection).then((res) =>{
+        const ref = marca
+        ? query(itemCollection, where("marca", "==", marca))
+        : itemCollection
+        getDocs(ref).then((res) =>{
             setProductos(res.docs.map((doc)=>({id:doc.id, ...doc.data()})))
     })
-    },[])
+    },[marca])
 
 
     return(
@@ -31,12 +32,17 @@ function ItemListContainer() {
                 <h3>Cargando...</h3>
             ):(
                 <div className="row">
+                    <button className="col-3"><Link to={`/productos/jordan`}>Jordan</Link></button>
+                    <button className="col-3"><Link to={`/productos/new balance`}>New Balance</Link></button>
+                    <button className="col-3"><Link to={`/productos/converse`}>Converse</Link></button>
+                    <button className="col-3"><Link to={`/productos/nike`}>Nike</Link></button>
                 {productos.map(el => (
                     <div key={el.id} className="col-4">
                     <Item id={el.id}
                       precio={el.precio}  
                       prod={el.modelo}  
-                      img={el.img}  />
+                      img={el.img}
+                      marca={el.marca}  />
                 </div>
                 ))}
                 </div>

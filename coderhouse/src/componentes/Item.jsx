@@ -9,7 +9,7 @@ function Item({id, img, prod, precio}){
         <>
                     <div key={id} className="item">
                     <div className="card">
-                    <img src={img} alt/> 
+                    <img src={img} alt=""/> 
                     </div>
                     <div className="informacion">
                         <h3 className="titulo text-center">{prod}</h3>
