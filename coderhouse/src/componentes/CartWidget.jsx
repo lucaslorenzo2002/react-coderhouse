@@ -11,7 +11,7 @@ function CartWidget (){
         <button type="button" onClick={()=> clear()}>vaciar</button> 
         <div className="CartWidget">
             <FontAwesomeIcon icon={faCartShopping} />
-            <span className="wTotal">{widgetTotal()}</span>
+            <span className="wTotal">{widgetTotal() || ""}</span>
         </div>
         </>
     )

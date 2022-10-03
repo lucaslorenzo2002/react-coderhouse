@@ -1,8 +1,8 @@
 #hero{
   height: 80vh;
-  }
+  /* //background-image: linear-gradient(to bottom, black, grey); */
+}
 
-  
   #hero img{
     position: relative;
     left: 430px;
@@ -13,4 +13,5 @@
   #hero .title{
     position: relative;
     bottom: 300px;
+    color: black;
   }

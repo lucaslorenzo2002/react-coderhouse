@@ -3,7 +3,7 @@ import '../hojas-de-estilo/navbar.css';
 import Burger from "./BurgerBtn";
 import styled from 'styled-components'
 import CartWidget from './CartWidget';
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 
  function Navbar(){
@@ -17,13 +17,13 @@ import { NavLink } from "react-router-dom";
     return(
     <>
         <NavContainer>
-            <NavLink to="/"><h2>KA<span>VAN</span></h2></NavLink>
+            <Link to="/"><h2 className='appLogo'>KA<span>VAN</span></h2></Link>
             <div className= {`links ${click ? "active" : ""}`}>
-                <NavLink to="/" activeClassName = "active">Home</NavLink>
+                <NavLink to="" activeClassName = "active">Home</NavLink>
                 <NavLink to="productos" activeClassName = "active">Productos</NavLink>
                 <NavLink to="contacto" activeClassName = "active">Contacto</NavLink>
             </div>
-                <NavLink to="cart"><CartWidget /></NavLink>
+                <Link to="cart"><CartWidget /></Link>
             <div className="burger">
             <Burger click={click} handleClick={handleClick} />
             </div>
@@ -37,6 +37,7 @@ export default Navbar
 
 const NavContainer = styled.nav`
   h2{
+    object-fit: contain;
     color: white;
     font-weight: 400;
     span{
@@ -53,6 +54,9 @@ const NavContainer = styled.nav`
     color: white;
     text-decoration: none;
     margin-right: 1rem;
+  }
+  .active{
+    background-color: red;
   }
   .links{
     position: absolute;

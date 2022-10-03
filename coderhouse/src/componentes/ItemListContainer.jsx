@@ -31,7 +31,7 @@ function ItemListContainer() {
             {productos.length === 0 ? (
                 <h3>Cargando...</h3>
             ):(
-                <div className="row">
+                <div className="row item-container">
                     <button className="col-3"><Link to={`/productos/jordan`}>Jordan</Link></button>
                     <button className="col-3"><Link to={`/productos/new balance`}>New Balance</Link></button>
                     <button className="col-3"><Link to={`/productos/converse`}>Converse</Link></button>
