@@ -10,7 +10,6 @@ import FormContainer from './componentes/FormContainer';
  import{BrowserRouter, Route, Routes, } from "react-router-dom";
 
 import Productos from './componentes/Productos';
-import Contacto from './componentes/Contacto';
 import Err from './componentes/Err404';
 import ItemDetail from './componentes/ItemDetail';
 import Cart from './componentes/Cart';
@@ -29,7 +28,6 @@ function App() {
         <Route exact path='/' element={<Hero />}/>
         <Route exact path='/productos/' element={<Productos />}/>
         <Route exact path='/productos/:marca' element={<ItemListContainer />}/>
-        <Route exact path='/contacto' element={<Contacto />}/>
         <Route exact path='/cart' element={<Cart />}/>
         <Route exact path='/producto/:id' element={<ItemDetailContainer />}/>
         <Route  path='*' element={<Err />}/>
