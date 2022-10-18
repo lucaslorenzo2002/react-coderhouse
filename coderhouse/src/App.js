@@ -5,8 +5,6 @@ import ItemListContainer from './componentes/ItemListContainer';
 import Navbar from './componentes/Navbar';
 import Item from './componentes/Item';
 import ItemDetailContainer from './componentes/ItemDetailContainer';
-import Form from './componentes/Form';
-import FormContainer from './componentes/FormContainer';
  import{BrowserRouter, Route, Routes, } from "react-router-dom";
 
 import Productos from './componentes/Productos';
