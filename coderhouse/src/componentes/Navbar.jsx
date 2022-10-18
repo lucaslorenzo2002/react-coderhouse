@@ -19,9 +19,8 @@ import { NavLink, Link } from "react-router-dom";
         <NavContainer>
             <Link to="/"><h2 className='appLogo'>KA<span>VAN</span></h2></Link>
             <div className= {`links ${click ? "active" : ""}`}>
-                <NavLink to="" activeClassName = "active">Home</NavLink>
+                <NavLink to="" activeClassName = "active">Inicio</NavLink>
                 <NavLink to="productos" activeClassName = "active">Productos</NavLink>
-                <NavLink to="contacto" activeClassName = "active">Contacto</NavLink>
             </div>
                 <Link to="cart"><CartWidget /></Link>
             </NavContainer>
