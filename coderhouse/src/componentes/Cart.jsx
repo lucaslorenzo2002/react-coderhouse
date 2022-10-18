@@ -1,31 +1,80 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ItemCart from './ItemCart';
 import { CartContext } from './UseContext';
 import { getFirestore, collection, doc, getDocs, query, where, addDoc } from "firebase/firestore"
 
+
+const initial = {
+    nombre: "",
+    email: "",
+    telefono: ""
+}
 const Cart = () => {
 
     const{ cart, cartTotal } = useContext(CartContext)
-    const orden = {
-        cliente:{
-            nombre: "",
-            mail: "",
-            tel: "",
-            direccion: ""
-        },
-        items: cart.map((producto => ({id: producto.id, producto: producto.prod, precio: producto.precio, cantidad: producto.cantidad}))),
-        total: cartTotal(),
+
+    
+
+    const[form, setForm] = useState(initial)
+    const[orderId, setOrderId] = useState("")
+
+    const handleChange = (e) =>{
+        setForm({
+            ...form,
+            [e.target.name]: e.target.value
+        })
     }
 
+    const handleSubmit = (e) =>{
+        const buyer = { nombre: form.nombre,
+                         mail: form.email,
+                        tel: form.telefono}
+        const total = {
+            total: cartTotal()
+        }        
+        const items = [];
+        cart.forEach((element) => {
+            items.push({id: element.id, producto: element.prod, precio: element.precio, cantidad: element.cantidad})
+        });    
+        const order = {buyer:buyer, total:total, items:items}   
 
-    const handleClick = () => {
-        console.log("compra finalizada");
+        e.preventDefault()
+         if( !form.nombre || !form.telefono || !form.email){
+            alert("datos incompletos")
+            return;
+        }
+        
+
         const db = getFirestore()
         const ordenCollection = collection(db, "orden")
-        addDoc(ordenCollection, orden)
-        .then(({id}) => console.log(id))
+         addDoc(ordenCollection, order)
+        .then(({id}) => 
+        console.log(id)
+    ) 
     }
+    /* const order = {
+        cliente:{
+            nombre: form.nombre,
+            mail: form.email,
+            tel: form.telefono,
+        },
+        items: cart.map((producto => (
+            {id: producto.id, producto: producto.prod, precio: producto.precio, cantidad: producto.cantidad}
+            ))),
+        total: cartTotal(),
+        
+    } */
+
+
+    /*  const handleSubmit =  (e) =>{
+         
+    } */
+
+
+   
+
+
 
     if(cart.length === 0){
     return(
@@ -40,7 +89,7 @@ const Cart = () => {
         <>
             <div className="row cart">
                 {cart.map(el => (
-                    <div key={el.id}>
+                    <div className='col-6' key={el.id}>
                         <ItemCart 
                         precio={el.precio}
                         img={el.img}
@@ -51,11 +100,19 @@ const Cart = () => {
                         />
                     </div>
                 ))}
-            </div>
+                </div>
             <div className="total">
                 <p className='text-center'>total: ${cartTotal()}</p>
             </div>
-            <button onClick={handleClick()}>finalizar compra</button>
+            <form  onSubmit={handleSubmit} >
+            <div className="col-12">
+            <input type="text" name="nombre" placeholder="ingrese su nombre"  value={form.nombre} onChange={handleChange}/>
+            <input type="email" name="email" placeholder="ingrese su email"  value={form.email} onChange={handleChange}/>
+            <input type="tel" name="telefono" placeholder="ingrese su telefono"  value={form.telefono} onChange={handleChange}/>
+            </div>
+            <input  className="subBtn" type="submit" value="finalizar compra" />
+            </form> 
+            
         </>
     )
 }
