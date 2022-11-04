@@ -22,7 +22,8 @@ function ItemListContainer() {
         getDocs(ref).then((res) =>{
             setProductos(res.docs.map((doc)=>({id:doc.id, ...doc.data()})))
     })
-    },[marca])
+},[marca])
+
 
 
     return(

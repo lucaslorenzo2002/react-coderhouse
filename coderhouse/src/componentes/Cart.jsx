@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ItemCart from './ItemCart';
 import { CartContext } from './UseContext';
-import { getFirestore, collection, doc, getDocs, query, where, addDoc } from "firebase/firestore"
+import { getFirestore, collection, addDoc } from "firebase/firestore"
 
 
 const initial = {
@@ -26,34 +26,8 @@ const Cart = () => {
         })
     }
 
-    const handleSubmit = (e) =>{
-        const buyer = { nombre: form.nombre,
-                         mail: form.email,
-                        tel: form.telefono}
-        const total = {
-            total: cartTotal()
-        }        
-        const items = [];
-        cart.forEach((element) => {
-            items.push({id: element.id, producto: element.prod, precio: element.precio, cantidad: element.cantidad})
-        });    
-        const order = {buyer:buyer, total:total, items:items}   
 
-        e.preventDefault()
-         if( !form.nombre || !form.telefono || !form.email){
-            alert("datos incompletos")
-            return;
-        }
-        
-
-        const db = getFirestore()
-        const ordenCollection = collection(db, "orden")
-         addDoc(ordenCollection, order)
-        .then(({id}) => 
-        console.log(id)
-    ) 
-    }
-    /* const order = {
+    const order = {
         cliente:{
             nombre: form.nombre,
             mail: form.email,
@@ -64,12 +38,23 @@ const Cart = () => {
             ))),
         total: cartTotal(),
         
-    } */
+    } 
 
 
-    /*  const handleSubmit =  (e) =>{
-         
-    } */
+     const handleSubmit =  (e) =>{
+         e.preventDefault()
+         if( !form.nombre || !form.telefono || !form.email){
+            alert("datos incompletos")
+            return;
+        }
+        
+        const db = getFirestore()
+        const ordenCollection = collection(db, "orden")
+         addDoc(ordenCollection, order)
+        .then(({id}) => 
+        console.log(id)
+    ) 
+    }
 
 
    
@@ -105,7 +90,7 @@ const Cart = () => {
                 <p className='text-center'>total: ${cartTotal()}</p>
             </div>
             <form  onSubmit={handleSubmit} >
-            <div className="col-12">
+            <div>
             <input type="text" name="nombre" placeholder="ingrese su nombre"  value={form.nombre} onChange={handleChange}/>
             <input type="email" name="email" placeholder="ingrese su email"  value={form.email} onChange={handleChange}/>
             <input type="tel" name="telefono" placeholder="ingrese su telefono"  value={form.telefono} onChange={handleChange}/>
